@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   BarChart,
   Bar,
@@ -9,25 +10,36 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import apiServices from "@/services/apiServices.jsx";
-// import PropTypes from "prop-types";
+import { User } from "@/models/userData.jsx";
 
 const SimpleChartBar = () => {
   const [userData, setUserData] = useState(null);
+  const { userId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await apiServices.getUserData();
-        setUserData(data);
+        const data = await apiServices.getUserData(userId);
+        const user = data; // since we have already processed the data in ApiService, no need to index at user[0]
+        // créer une nouvelle instance de User avec toutes les propriétés nécessaires
+        const userData = new User(
+          user.id,
+          user.name,
+          user.dailyActivity,
+          user.averageSessionDuration,
+          user.score,
+          user.performance,
+          user.nutrition
+        );
+        setUserData(userData);
       } catch (error) {
         console.log("an error occured");
       }
     };
-
     fetchData();
-  }, []);
+  }, [userId]);
 
-  const dailyActivity = userData?.user?.[0]?.dailyActivity?.days;
+  const dailyActivity = userData?.dailyActivity.days;
 
   const dataGraph = dailyActivity?.map((day) => ({
     name: day.day,
@@ -50,24 +62,24 @@ const SimpleChartBar = () => {
       >
         <CartesianGrid strokeDasharray={`5`} vertical={false} />
         <XAxis dataKey="name" />
-        <YAxis orientation="right" dataKey={"kcal"}/>
+        <YAxis orientation="right" dataKey={"kcal"} />
         <Tooltip />
 
         <Bar
           dataKey="weight"
-          fill="#282D30;"
+          fill="#282D30"
           barSize={10}
           radius={[10, 10, 0, 0]}
         />
-        <Bar dataKey="kcal" fill="#E60000"
-        barSize={10} radius={[10, 10, 0, 0]}/>
+        <Bar
+          dataKey="kcal"
+          fill="#E60000"
+          barSize={10}
+          radius={[10, 10, 0, 0]}
+        />
       </BarChart>
     </ResponsiveContainer>
   );
 };
-
-// SimpleChartBar.propTypes = {
-// //   id: PropTypes.number,
-// };
 
 export default SimpleChartBar;

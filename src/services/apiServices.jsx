@@ -12,7 +12,7 @@ class ApiService {
     await delay(1000);
 
     // Ici, nous utilisons le mockData à la place d'une véritable requête API
-    const userData = mockData.find(user => user.id === id);
+    const userData = mockData.flatMap(obj => obj.user).find(user => user.id === Number(id));
 
     // Si l'utilisateur n'est pas trouvé, nous renvoyons une erreur
     if (!userData) {
