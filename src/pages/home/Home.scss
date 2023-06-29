@@ -1,0 +1,28 @@
+@import '../../scss/variables.scss';
+
+.home {
+
+    &__intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 6rem;
+
+        h1 {
+            color: $black;
+            font-size: 3rem;
+            font-weight: 500;
+            line-height: 1.5rem;
+    
+            span {
+                color: $danger;
+            }
+    
+            p {
+                font-size: 1.125rem;
+                font-weight: 400;
+                line-height: 1.5rem;
+            }
+        }
+    }
+}

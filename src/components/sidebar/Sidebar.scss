@@ -1,0 +1,45 @@
+@import '../../scss/variables.scss';
+
+.sidebar {
+    background-color: $black;
+    width: 7.3125rem;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+
+        ul {
+            color: $white;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            li {
+                margin: 1rem;
+
+                .swim-icon{
+                    border: .1875rem solid $danger;
+                }
+            }
+        }
+
+        div {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            p {
+                white-space: nowrap;
+                color: $white;
+                transform: rotate(-90deg);
+            }
+        }
+
+    }
+}

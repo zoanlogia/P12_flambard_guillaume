@@ -1,0 +1,59 @@
+@import "../../scss/variables";
+
+.bars {
+    width: 53.125rem;
+    height: 20rem;
+    border-radius: .3125rem;
+    background-color: $lightGrey;
+    box-shadow: $lightShadow;
+    padding: 2rem;
+    margin: 1.875rem 0;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &__title {
+            font-size: 1rem;
+            color: $lightBlack;
+            font-weight: 500;
+            line-height: 1.5rem;
+        }
+
+        &__legend {
+            width: 35%;
+            display: flex;
+            justify-content: space-between;
+            
+            h4 {
+                color: $grey;
+                font-size: 1rem;
+                display: flex;
+                align-items: center;
+
+                .dot--black::before {
+                   background-color: #282D30;
+                    border-radius: 50%;
+                    margin-right: .5rem;
+                    content: "";
+                    display: block;
+                    width: .5rem;
+                    height: .5rem;
+                    border-radius: 50%;
+                }
+                
+                .dot--red::before {
+                   background-color: $danger;
+                    border-radius: 50%;
+                    margin-right: .5rem;
+                    content: "";
+                    display: block;
+                    width: .5rem;
+                    height: .5rem;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
