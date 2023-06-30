@@ -1,4 +1,4 @@
-import SimpleChartBar from "@/components/recharts/SimpleBarChart.jsx";
+import SimpleChartBar from "@/components/recharts/SimpleBarChart";
 import "./Bars.scss";
 
 const Bars = () => {

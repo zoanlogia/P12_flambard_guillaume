@@ -1,45 +1,38 @@
-export class User {
-  constructor(
-    id,
-    name,
-    dailyActivity,
-    averageSessionDuration,
-    score,
-    performance,
-    nutrition
-  ) {
+// Model pour les données principales de l'utilisateur
+class UserMainData {
+  constructor(id, firstName, lastName, age, todayScore, keyData) {
     this.id = id;
-    this.name = name;
-    this.dailyActivity = dailyActivity;
-    this.averageSessionDuration = averageSessionDuration;
-    this.score = score;
-    this.performance = performance;
-    this.nutrition = nutrition;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+    this.todayScore = todayScore;
+    this.keyData = keyData;
   }
 }
 
-export class Day {
-  constructor(day, weight, caloriesBurned) {
-    this.day = day;
-    this.weight = weight;
-    this.caloriesBurned = caloriesBurned;
+// Model pour l'activité de l'utilisateur
+class UserActivity {
+  constructor(userId, sessions) {
+    this.userId = userId;
+    this.sessions = sessions;
   }
 }
 
-export class Performance {
-  constructor(intensity, speed, endurance, energy, cardio) {
-    this.intensity = intensity;
-    this.speed = speed;
-    this.endurance = endurance;
-    this.energy = energy;
-    this.cardio = cardio;
+// Model pour les sessions moyennes de l'utilisateur
+class UserAverageSessions {
+  constructor(userId, sessions) {
+    this.userId = userId;
+    this.sessions = sessions;
   }
 }
 
-export class Nutrition {
-  constructor(fats, carbs, kcal) {
-    this.fats = fats;
-    this.carbs = carbs;
-    this.kcal = kcal;
+// Model pour les performances de l'utilisateur
+class UserPerformance {
+  constructor(userId, kind, data) {
+    this.userId = userId;
+    this.kind = kind;
+    this.data = data;
   }
 }
+
+export { UserMainData, UserActivity, UserAverageSessions, UserPerformance };
