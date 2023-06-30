@@ -9,7 +9,7 @@ const Lines = () => {
           <h2>Durée moyenne des <br /> sessions</h2>
         </div>
       </div>
-      <RenderLineChart />
+      <RenderLineChart  />
     </div>
   );
 };

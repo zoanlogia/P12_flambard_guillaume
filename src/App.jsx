@@ -14,8 +14,6 @@ const App = () => {
     return <Loader />;
   }
 
-  console.log(userData);
-
   return (
     <div id="app" className="app">
       <div className="app__container">

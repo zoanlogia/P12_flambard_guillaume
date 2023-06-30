@@ -1,27 +1,37 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, Tooltip } from "recharts";
 import { useUserData } from "@/hooks/useUserData";
+import { setDateLetter } from "../../tools/setDateLetter.js";
 
 const RenderLineChart = () => {
   const { userId } = useParams();
   const { userData, error } = useUserData(userId);
+  const [averageSessions, setAverageSessions] = useState([]);
+
+  useEffect(() => {
+    if (userData) {
+      const userSessions = userData.userAverageSessions.sessions;
+
+      // Format the data for the graph
+      const dataGraph = userSessions?.map((session) => ({
+        name: setDateLetter(session.day),
+        uv: session.sessionLength,
+        
+      }));
+
+      setAverageSessions(dataGraph);
+    }
+  }, [userData]);
 
   // handle error
   if (error) {
     return <div>{error}</div>;
   }
 
-  const userActivity = userData?.userActivity;
-
-  const dataGraph = userActivity?.sessions.map((session) => ({
-    name: session.day,
-    uv: session.calories,
-    pv: session.kilogram,
-  }));
-
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <LineChart data={dataGraph}>
+    
+      <LineChart data={averageSessions} height={400} width={400}>
         <Line
           strokeWidth={"3px"}
           dot={false}
@@ -45,7 +55,7 @@ const RenderLineChart = () => {
 
         <Tooltip />
       </LineChart>
-    </ResponsiveContainer>
+    
   );
 };
 

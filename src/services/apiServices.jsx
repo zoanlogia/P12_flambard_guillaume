@@ -4,7 +4,7 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 class ApiService {
   async getUserMainData(id) {
-    await delay(1000);
+    await delay(0);
 
     const userData = USER_MAIN_DATA.find(user => user.id === Number(id));
 
@@ -12,7 +12,7 @@ class ApiService {
       throw new Error(`User with id ${id} not found.`);
     }
 
-    console.log(userData);
+    
     
     return userData;
   }

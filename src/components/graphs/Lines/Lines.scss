@@ -1,9 +1,8 @@
 @import "@/scss/variables";
 
 .lines {
-
-    width: max-content;
-    height: max-content;
+    height: 31.25rem;
+    width:31.25rem;
     border-radius: .3125rem;
     background-color: $danger;
     box-shadow: $lightShadow;

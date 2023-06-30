@@ -31,10 +31,10 @@ const Home = () => {
 
       <div className="home__stats">
         <div className="home__stats__card">
-          <Bars userData={userData} />
+          <Bars />
         </div>
         <div>
-          <Lines userData={userData} />
+          <Lines />
         </div>
       </div>
     </section>
