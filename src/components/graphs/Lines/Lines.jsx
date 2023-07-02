@@ -8,8 +8,8 @@ const Lines = () => {
         <div className="lines__wrapper__title">
           <h2>Durée moyenne des <br /> sessions</h2>
         </div>
-      </div>
       <RenderLineChart  />
+      </div>
     </div>
   );
 };

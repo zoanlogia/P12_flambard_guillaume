@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { LineChart, Line, XAxis, Tooltip } from "recharts";
 import { useUserData } from "@/hooks/useUserData";
-import { setDateLetter } from "../../tools/setDateLetter.js";
+import { setDateLetter } from "@/tools/setDateLetter";
 
 const RenderLineChart = () => {
   const { userId } = useParams();
@@ -17,10 +17,10 @@ const RenderLineChart = () => {
       const dataGraph = userSessions?.map((session) => ({
         name: setDateLetter(session.day),
         uv: session.sessionLength,
-        
       }));
 
       setAverageSessions(dataGraph);
+      console.log(dataGraph);
     }
   }, [userData]);
 
@@ -31,30 +31,30 @@ const RenderLineChart = () => {
 
   return (
     
-      <LineChart data={averageSessions} height={400} width={400}>
-        <Line
-          strokeWidth={"3px"}
-          dot={false}
-          type="monotone"
-          style={{
-            opacity: 0.5,
-          }}
-          dataKey="uv"
-          stroke="#fff"
-        />
+    <LineChart data={averageSessions} width={400} height={300}>
+      <Line
+        strokeWidth={"3px"}
+        dot={false}
+        type="monotone"
+        style={{
+          opacity: 0.5,
+        }}
+        dataKey="uv"
+        stroke="#fff"
+      />
 
-        <XAxis
-          dataKey="name"
-          stroke="#fff"
-          tick={true}
-          opacity={0.5}
-          padding={{ left: 20, right: 20 }}
-          axisLine={false}
-          tickLine={false}
-        />
+      <XAxis
+        dataKey="name"
+        stroke="#fff"
+        tick={true}
+        opacity={0.5}
+        padding={{ left: 10, right: 10 }}
+        axisLine={false}
+        tickLine={false}
+      />
 
-        <Tooltip />
-      </LineChart>
+      <Tooltip />
+    </LineChart>
     
   );
 };

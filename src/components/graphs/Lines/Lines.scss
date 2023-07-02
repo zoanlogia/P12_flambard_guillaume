@@ -1,15 +1,18 @@
 @import "@/scss/variables";
 
 .lines {
-    height: 31.25rem;
-    width:31.25rem;
+
     border-radius: .3125rem;
     background-color: $danger;
     box-shadow: $lightShadow;
     margin: 1.875rem 0;
 
-    h2 {
+    &__wrapper {
+        width: 400px;
+        height: 400px;
+    }
 
+    h2 {
         padding: 1rem;
         font-size: 1.2rem;
         color: $white;

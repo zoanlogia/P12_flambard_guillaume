@@ -3,6 +3,7 @@ import Bars from "@/components/graphs/bars/bars";
 import Loader from "@/components/loader/Loader";
 import Lines from "@/components/graphs/Lines/Lines";
 import { useUserData } from "@/hooks/useUserData";
+import Radial from "@/components/graphs/radials/radial";
 
 const Home = () => {
   
@@ -33,8 +34,9 @@ const Home = () => {
         <div className="home__stats__card">
           <Bars />
         </div>
-        <div>
+        <div className="graphs__container">
           <Lines />
+          <Radial />
         </div>
       </div>
     </section>
