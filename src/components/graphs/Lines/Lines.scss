@@ -1,0 +1,23 @@
+@import "@/scss/variables";
+
+.lines {
+
+    border-radius: .3125rem;
+    background-color: $danger;
+    box-shadow: $lightShadow;
+    margin: 1.875rem 0;
+
+    &__wrapper {
+        width: 400px;
+        height: 400px;
+    }
+
+    h2 {
+        padding: 1rem;
+        font-size: 1.2rem;
+        color: $white;
+        font-weight: 500;
+        line-height: 1.5rem;
+        opacity: .5;
+    }
+}

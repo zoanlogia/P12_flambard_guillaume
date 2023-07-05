@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   BarChart,
   Bar,
@@ -8,35 +8,28 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import apiServices from "@/services/apiServices.jsx";
-// import PropTypes from "prop-types";
+import { useUserData } from "@/hooks/useUserData";
+import {setDateLetter} from "@/tools/setDateLetter.js";
 
 const SimpleChartBar = () => {
-  const [userData, setUserData] = useState(null);
+  const { userId } = useParams();
+  const { userData, error } = useUserData(userId);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await apiServices.getUserData();
-        setUserData(data);
-      } catch (error) {
-        console.log("an error occured");
-      }
-    };
+  // handle error
+  if (error) {
+    return <div>{error}</div>;
+  }
 
-    fetchData();
-  }, []);
+  const userActivity = userData?.userActivity;
 
-  const dailyActivity = userData?.user?.[0]?.dailyActivity?.days;
-
-  const dataGraph = dailyActivity?.map((day) => ({
-    name: day.day,
-    kcal: day.caloriesBurned,
-    weight: day.weight,
+  const dataGraph = userActivity?.sessions.map((session) => ({
+    name: setDateLetter(session.day) , // assuming day is a property in session
+    kcal: session.calories, // assuming caloriesBurned is a property in session
+    weight: session.kilogram, // assuming weight is a property in session
   }));
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer className={"flex-child"} width="100%" height="100%">
       <BarChart
         width={500}
         height={300}
@@ -49,25 +42,37 @@ const SimpleChartBar = () => {
         }}
       >
         <CartesianGrid strokeDasharray={`5`} vertical={false} />
-        <XAxis dataKey="name" />
-        <YAxis orientation="right" dataKey={"kcal"}/>
+        <XAxis
+          dataKey="name"
+          axisLine={false}
+          tickLine={false}
+          stroke="#9B9EAC"
+          tickMargin={15}
+        />
+        <YAxis
+          orientation="right"
+          dataKey={"kcal"}
+          axisLine={false}
+          tickLine={false}
+          stroke="#9B9EAC"
+        />
         <Tooltip />
 
         <Bar
           dataKey="weight"
-          fill="#282D30;"
+          fill="#282D30"
           barSize={10}
           radius={[10, 10, 0, 0]}
         />
-        <Bar dataKey="kcal" fill="#E60000"
-        barSize={10} radius={[10, 10, 0, 0]}/>
+        <Bar
+          dataKey="kcal"
+          fill="#E60000"
+          barSize={10}
+          radius={[10, 10, 0, 0]}
+        />
       </BarChart>
     </ResponsiveContainer>
   );
 };
-
-// SimpleChartBar.propTypes = {
-// //   id: PropTypes.number,
-// };
 
 export default SimpleChartBar;

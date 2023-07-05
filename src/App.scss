@@ -46,7 +46,7 @@ table {
 .app {
   font-family: 'roboto', sans-serif;
   display: flex;
-  height: 100vh; // ceci donne à votre application la hauteur totale de l'écran
+
 
   &__container {
     width: 100%;
@@ -58,6 +58,7 @@ table {
   .main {
     display: flex;
     flex-direction: row;
+    // height: 100dvh;
 
     &__pages {
       margin: 6rem;

@@ -1,16 +1,19 @@
-import "./App.scss";
+// App.js
+
+import "@/App.scss";
 import Navbar from "@/components/navbar/Navbar.jsx";
 import Sidebar from "@/components/sidebar/Sidebar.jsx";
 import Home from "@/pages/home/Home.jsx";
+import { useUserData } from "@/hooks/useUserData";
+import Loader from "@/components/loader/Loader.jsx";
 
-/**
- * The App component returns a div element with the id "app" and class "app", containing a Navbar and
- * Sidebar component.
- * @returns The App component is returning a JSX element. The JSX element is a div with the id "app"
- * and the className "app". Inside the div, there are two components being rendered: Navbar and
- * Sidebar.
- */
 const App = () => {
+  const userData = useUserData();
+
+  if (!userData) {
+    return <Loader />;
+  }
+
   return (
     <div id="app" className="app">
       <div className="app__container">
