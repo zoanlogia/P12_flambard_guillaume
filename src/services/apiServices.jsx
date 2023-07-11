@@ -1,59 +1,59 @@
-import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from '@/api/__MOCKS__/mockData.js';
-
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
 class ApiService {
   async getUserMainData(id) {
-    await delay(0);
+    try {
+      const response = await fetch(`http://localhost:3000/user/${id}`);
+      const data = await response.json();
+      if (!data) {
+        throw new Error(`User with id ${id} not found.`);
+      }
+      return data;
 
-    const userData = USER_MAIN_DATA.find(user => user.id === Number(id));
-
-    if (!userData) {
-      throw new Error(`User with id ${id} not found.`);
+    } catch (error) {
+      throw new Error(`Error: ${error}`);
     }
-
-    
-    
-    return userData;
   }
-
+  
   async getUserActivity(id) {
-    await delay(1000);
+    try {
+      const response = await fetch(`http://localhost:3000/user/${id}/activity`);
+      const data = await response.json();
+      if (!data) {
+        throw new Error(`User with id ${id} not found.`);
+      }
+      return data;
 
-    const userActivity = USER_ACTIVITY.find(activity => activity.userId === Number(id));
-
-
-    if (!userActivity) {
-      throw new Error(`UserActivity for userId ${id} not found.`);
+    } catch (error) {
+      throw new Error(`Error: ${error}`);
     }
-
-    return userActivity;
   }
 
   async getUserAverageSessions(id) {
-    await delay(1000);
-
-    const userAverageSessions = USER_AVERAGE_SESSIONS.find(session => session.userId === Number(id));
-
-
-    if (!userAverageSessions) {
-      throw new Error(`UserAverageSessions for userId ${id} not found.`);
+    try {
+      const response = await fetch(`http://localhost:3000/user/${id}/average-sessions`);
+      const data = await response.json();
+      if (!data) {
+        throw new Error(`User with id ${id} not found.`);
+      }
+      return data;
+      
+    } catch (error) {
+      throw new Error(`Error: ${error}`);
     }
-
-    return userAverageSessions;
   }
 
   async getUserPerformance(id) {
-    await delay(1000);
+    try {
+      const response = await fetch(`http://localhost:3000/user/${id}/performance`);
+      const data = await response.json();
+      if (!data) {
+        throw new Error(`User with id ${id} not found.`);
+      }
+      return data;
 
-    const userPerformance = USER_PERFORMANCE.find(performance => performance.userId === Number(id));
-
-
-    if (!userPerformance) {
-      throw new Error(`UserPerformance for userId ${id} not found.`);
+    } catch (error) {
+      throw new Error(`Error: ${error}`);
     }
 
-    return userPerformance;
   }
 }
 

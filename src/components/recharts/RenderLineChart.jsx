@@ -20,7 +20,7 @@ const RenderLineChart = () => {
       }));
 
       setAverageSessions(dataGraph);
-      console.log(dataGraph);
+      
     }
   }, [userData]);
 

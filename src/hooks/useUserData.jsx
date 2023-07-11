@@ -26,26 +26,26 @@ export function useUserData() {
 
         // Création des objets de modèle à partir des données récupérées
         const userMainData = new UserMainData(
-          mainData.id,
-          mainData.userInfos.firstName,
-          mainData.userInfos.lastName,
-          mainData.userInfos.age,
-          mainData.todayScore || mainData.score,
-          mainData.keyData
+          mainData.data.id,
+          mainData.data.userInfos.firstName,
+          mainData.data.userInfos.lastName,
+          mainData.data.userInfos.age,
+          mainData.data.todayScore || mainData.score,
+          mainData.data.keyData
         );
 
         const userActivity = new UserActivity(
-          activityData.userId,
-          activityData.sessions
+          activityData.data.userId,
+          activityData.data.sessions
         );
         const userAverageSessions = new UserAverageSessions(
-          averageSessionsData.userId,
-          averageSessionsData.sessions
+          averageSessionsData.data.userId,
+          averageSessionsData.data.sessions
         );
         const userPerformance = new UserPerformance(
-          performanceData.userId,
-          performanceData.kind,
-          performanceData.data
+          performanceData.data.userId,
+          performanceData.data.kind,
+          performanceData.data.data
         );
 
         // Regroupement de toutes les données de l'utilisateur dans un seul objet
