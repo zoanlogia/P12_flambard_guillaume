@@ -13,12 +13,12 @@ export const setDateLetter = (input) => {
   }
 
   const dayMap = {
-    0: "S", // Sunday
-    1: "M", // Monday
-    2: "T", // Tuesday
-    3: "W", // Wednesday
-    4: "T", // Thursday
-    5: "F", // Friday
+    0: "D", // Sunday
+    1: "L", // Monday
+    2: "M", // Tuesday
+    3: "M", // Wednesday
+    4: "J", // Thursday
+    5: "V", // Friday
     6: "S", // Saturday
   };
 

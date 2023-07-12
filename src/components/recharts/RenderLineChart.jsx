@@ -20,7 +20,6 @@ const RenderLineChart = () => {
       }));
 
       setAverageSessions(dataGraph);
-      
     }
   }, [userData]);
 
@@ -29,11 +28,27 @@ const RenderLineChart = () => {
     return <div>{error}</div>;
   }
 
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+          style={{
+            backgroundColor: "#fff",
+            padding: "10px",
+          }}
+          className="custom-tooltip"
+        >
+          <p className="label">{`${payload[0].value} min`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
-    
-    <LineChart data={averageSessions} width={400} height={300}>
+    <LineChart data={averageSessions} width={300} height={200}>
       <Line
-        strokeWidth={"3px"}
+        strokeWidth={"px"}
         dot={false}
         type="monotone"
         style={{
@@ -53,9 +68,8 @@ const RenderLineChart = () => {
         tickLine={false}
       />
 
-      <Tooltip />
+      <Tooltip content={<CustomTooltip />} />
     </LineChart>
-    
   );
 };
 

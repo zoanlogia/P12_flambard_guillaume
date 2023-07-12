@@ -5,11 +5,13 @@
     border-radius: .3125rem;
     background-color: $danger;
     box-shadow: $lightShadow;
-    margin: 1.875rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &__wrapper {
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
     }
 
     h2 {

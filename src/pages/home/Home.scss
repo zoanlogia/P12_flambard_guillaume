@@ -2,34 +2,51 @@
 
 .home {
 
-    &__intro {
+    &__wrapper {
+        width: 100%;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 6rem;
-
-        h1 {
-            color: $black;
-            font-size: 3rem;
-            font-weight: 500;
-            line-height: 1.5rem;
+        flex-direction: row;
+        gap: 1em;
+        
+        &__intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 6rem;
     
-            span {
-                color: $danger;
-            }
-    
-            p {
-                font-size: 1.125rem;
-                font-weight: 400;
+            h1 {
+                color: $black;
+                font-size: 3rem;
+                font-weight: 500;
                 line-height: 1.5rem;
+        
+                span {
+                    color: $danger;
+                }
+        
+                p {
+                    font-size: 1.125rem;
+                    font-weight: 400;
+                    line-height: 1.5rem;
+                }
             }
+        }
+
+        .cards__container {
+            margin:1.875rem 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 1rem;
+        }
+    
+        .graphs__container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            flex-wrap: wrap;
         }
     }
 
-    .graphs__container {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 1em;
-    }
 }

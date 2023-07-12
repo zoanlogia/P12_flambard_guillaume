@@ -1,0 +1,51 @@
+@import "../../../scss/variables.scss";
+
+.score {
+    width: 250px;
+    height: 250px;
+    border-radius: .3125rem;
+    background-color: $lightGrey;
+    box-shadow: $lightShadow;
+    padding: 1.5rem;
+
+    h2 {
+        font-size: 1.3rem
+    }
+
+    &__wrapper {
+        position: relative;
+    }
+}
+
+.circle {
+    background-color: white;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__wrapper {
+
+        .result {
+            text-align: center;
+            color: $black;
+            font-size: 2rem;
+            line-height: 2rem;
+            font-weight: 700;
+        }
+       
+        p {
+            font-size: 1rem;
+            color: #74798C;
+            font-weight: 500;
+            line-height: 1.5rem;
+        }
+    }
+}

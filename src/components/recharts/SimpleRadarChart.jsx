@@ -18,8 +18,6 @@ const SimpleRadarChart = () => {
         A: session.value,
       }));
 
-      console.log(userData.userPerformance);
-
       setPerformance(dataGraph);
     }
   }, [userData]);
@@ -31,15 +29,16 @@ const SimpleRadarChart = () => {
   return (
     <div>
       <RadarChart
-        width={400}
-        height={400}
+        width={250}
+        height={250}
         cx="50%"
         cy="50%"
         outerRadius="80%"
         data={performance}
+        
       >
         <PolarGrid radialLines={false} stroke="#fff" strokeWidth={1.5} />
-        <PolarAngleAxis stroke="#fff" strokeWidth={1.5} dataKey="subject" />
+        <PolarAngleAxis tick={{fontSize:10}} stroke="#fff" strokeWidth={1.5} dataKey="subject" />
         <Radar
           dataKey="A"
           fill="rgba(255, 1, 1, 0.70)"

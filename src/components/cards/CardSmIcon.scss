@@ -1,0 +1,39 @@
+@import "../../scss/variables.scss";
+
+.card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $lightGrey;
+    width: 100%;
+    height: 9.375rem;
+
+    &__wrapper {
+        display: flex;
+        gap: 2rem;
+        margin: 0 3rem;
+
+        &__icon {
+            display: flex;
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .5rem;
+
+            h3 {
+                font-size: 20px;
+                color: $black;
+                font-weight: 700;
+                
+            }
+
+            p {
+                color: #74798C;
+            }
+        }
+
+    }
+}
