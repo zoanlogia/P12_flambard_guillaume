@@ -15,21 +15,25 @@ const Sidebar = () => {
       <div className="sidebar__wrapper">
         <ul>
           <li>
-            <ButtonLink className={'yoga-icon'} src={yoga} alt="yoga" />
+            <ButtonLink className={"yoga-icon"} src={yoga} alt="yoga" />
           </li>
           <li>
-            <ButtonLink className={'swim-icon'} src={swim} alt="swim" />
+            <ButtonLink className={"swim-icon"} src={swim} alt="swim" />
           </li>
           <li>
-            <ButtonLink className={'bycicle-icon'} src={bicycle} alt="bicycle" />
+            <ButtonLink
+              className={"bycicle-icon"}
+              src={bicycle}
+              alt="bicycle"
+            />
           </li>
           <li>
-            <ButtonLink className={'gym-icon'} src={gym} alt="gym" />
+            <ButtonLink className={"gym-icon"} src={gym} alt="gym" />
+          </li>
+          <li>
+              <p>Copyright, Sportsee 2020</p>
           </li>
         </ul>
-        <div>
-          <p>Copyright, Sportsee 2020</p>
-        </div>
       </div>
     </div>
   );

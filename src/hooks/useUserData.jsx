@@ -30,7 +30,7 @@ export function useUserData() {
           mainData.data.userInfos.firstName,
           mainData.data.userInfos.lastName,
           mainData.data.userInfos.age,
-          mainData.data.todayScore || mainData.score,
+          mainData.data.todayScore || mainData.data.score,
           mainData.data.keyData
         );
 

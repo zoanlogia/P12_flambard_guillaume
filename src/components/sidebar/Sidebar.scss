@@ -14,32 +14,34 @@
         ul {
             color: $white;
             list-style: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
+            display: contents;
 
             li {
                 margin: 1rem;
 
-                .swim-icon{
+                .swim-icon {
                     border: .1875rem solid $danger;
                 }
+
             }
+
+            li:last-child {
+                height: 250px;
+                display: flex;
+                align-items: center;
+
+
+                p {
+                    text-align: center;
+                    white-space: nowrap;
+                    color: $white;
+                    transform: rotate(-90deg);
+
+                }
+            }
+
         }
 
-        div {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            p {
-                white-space: nowrap;
-                color: $white;
-                transform: rotate(-90deg);
-            }
-        }
 
     }
 }

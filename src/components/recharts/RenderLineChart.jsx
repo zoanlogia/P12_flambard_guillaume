@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { LineChart, Line, XAxis, Tooltip } from "recharts";
 import { useUserData } from "@/hooks/useUserData";
 import { setDateLetter } from "@/tools/setDateLetter";
+import PropTypes from 'prop-types';
 
 const RenderLineChart = () => {
   const { userId } = useParams();
@@ -71,6 +72,11 @@ const RenderLineChart = () => {
       <Tooltip content={<CustomTooltip />} />
     </LineChart>
   );
+};
+
+RenderLineChart.propTypes = {
+  active: PropTypes.any,
+  payload: PropTypes.any,
 };
 
 export default RenderLineChart;

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useUserData } from '../../hooks/useUserData.jsx';
 import './CardSmIcon.scss'
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const CardSmIcon = ({ icon, content, category }) => {
 
@@ -21,7 +22,6 @@ const CardSmIcon = ({ icon, content, category }) => {
         }
       }, [userData, category]); // added category and userData in the dependencies array
       
-      
       if (error) {
         return <div>{error}</div>;
       }
@@ -39,6 +39,12 @@ const CardSmIcon = ({ icon, content, category }) => {
       </div>
     </div>
   );
+};
+
+CardSmIcon.propTypes = {
+  icon: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default CardSmIcon;

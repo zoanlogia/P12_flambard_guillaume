@@ -9,7 +9,6 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useUserData } from "@/hooks/useUserData";
-import {setDateLetter} from "@/tools/setDateLetter.js";
 
 const SimpleChartBar = () => {
   const { userId } = useParams();
@@ -22,8 +21,10 @@ const SimpleChartBar = () => {
 
   const userActivity = userData?.userActivity;
 
-  const dataGraph = userActivity?.sessions.map((session) => ({
-    name: setDateLetter(session.day) , // assuming day is a property in session
+  const dataGraph = userActivity?.sessions.map((session, index) => ({
+    name: index + 1,
+
+    // assuming day is a property in session
     kcal: session.calories, // assuming caloriesBurned is a property in session
     weight: session.kilogram, // assuming weight is a property in session
   }));
@@ -31,11 +32,9 @@ const SimpleChartBar = () => {
   return (
     <ResponsiveContainer className={"flex-child"} width="100%" height="100%">
       <BarChart
-        width={500}
-        height={300}
         data={dataGraph}
         margin={{
-          top: 5,
+          top: 10,
           right: 30,
           left: 20,
           bottom: 5,
@@ -50,11 +49,14 @@ const SimpleChartBar = () => {
           tickMargin={15}
         />
         <YAxis
+          allowDataOverflow={true}
+          domain={"dataMin"}
           orientation="right"
-          dataKey={"kcal"}
+          dataKey={"weight"}
           axisLine={false}
           tickLine={false}
           stroke="#9B9EAC"
+          interval={1}
         />
         <Tooltip />
 
