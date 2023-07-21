@@ -11,7 +11,7 @@ const SimpleRadialBarChart = () => {
 
   useEffect(() => {
     if (userData) {
-      const userScore = userData?.userMainData?.todayScore * 100;  // Assuming userScore is in range [0,1]
+      const userScore = userData?.userMainData?.todayScore * 100  // 
       setDisplayScore(userScore.toFixed(2));  // update display score
       const dataGraph = [
         {
