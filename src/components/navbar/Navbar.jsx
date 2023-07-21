@@ -1,12 +1,11 @@
 import logo from "@/assets/img/logo.svg";
 import "./Navbar.scss";
+import { FaBars } from "react-icons/fa"; // import hamburger icon from react-icons
+import { useState } from "react";
 
-/**
- * The Navbar component is a React functional component that renders a navigation bar with a logo and a
- * menu.
- * @returns The Navbar component is returning a JSX element representing a navigation bar.
- */
 const Navbar = () => {
+  const [show, setShow] = useState(false); // state to toggle the menu in small screens
+
   return (
     <header>
       <nav id="navbar" className="navbar">
@@ -15,7 +14,11 @@ const Navbar = () => {
           <h1>SportSee</h1>
         </div>
 
-        <div className="navbar__menu">
+        <div onClick={() => setShow(!show)} className="menu-icon">
+          <FaBars />
+        </div>
+
+        <div className={`navbar__menu ${show ? "show-menu" : ""}`}>
           <ul>
             <li>
               <a href="#">Accueil</a>

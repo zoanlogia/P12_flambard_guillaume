@@ -1,29 +1,42 @@
 @import '../../scss/variables.scss';
 
 .home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 
     &__wrapper {
         width: 100%;
         display: flex;
         flex-direction: row;
+        flex: 3 1;
+
+        .home__section {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 1545px) {
+            // flex-direction: column;  
+            flex-wrap: wrap;
+        }
         gap: 1em;
-        
+
         &__intro {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: 6rem;
-    
+
             h1 {
                 color: $black;
                 font-size: 3rem;
                 font-weight: 500;
-                line-height: 1.5rem;
-        
+                // line-height: 1.5rem;
+
                 span {
                     color: $danger;
                 }
-        
+
                 p {
                     font-size: 1.125rem;
                     font-weight: 400;
@@ -32,15 +45,19 @@
             }
         }
 
+       
+
         .cards__container {
-            margin:1.875rem 0;
+            flex: 1 1;
+            margin: 1.875rem 0;
             display: flex;
             flex-direction: column;
             width: 100%;
             gap: 1rem;
         }
-    
+
         .graphs__container {
+            flex: 3 1;
             width: 100%;
             display: flex;
             align-items: center;

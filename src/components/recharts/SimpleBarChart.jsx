@@ -30,7 +30,7 @@ const SimpleChartBar = () => {
   }));
 
   return (
-    <ResponsiveContainer className={"flex-child"} width="100%" height="100%">
+    <ResponsiveContainer  width="99%" aspect={3} height="100%">
       <BarChart
         data={dataGraph}
         margin={{

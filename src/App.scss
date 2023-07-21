@@ -45,15 +45,6 @@ table {
 
 .app {
   font-family: 'roboto', sans-serif;
-  display: flex;
-  width: 100%;
-
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
 
   .main {
     display: flex;

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { LineChart, Line, XAxis, Tooltip } from "recharts";
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { useUserData } from "@/hooks/useUserData";
 import { setDateLetter } from "@/tools/setDateLetter";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const RenderLineChart = () => {
   const { userId } = useParams();
@@ -47,30 +47,32 @@ const RenderLineChart = () => {
   };
 
   return (
-    <LineChart data={averageSessions} width={300} height={200}>
-      <Line
-        strokeWidth={"px"}
-        dot={false}
-        type="monotone"
-        style={{
-          opacity: 0.5,
-        }}
-        dataKey="uv"
-        stroke="#fff"
-      />
+    <ResponsiveContainer>
+      <LineChart data={averageSessions} width={"100%"} height={200}>
+        <Line
+          strokeWidth={"px"}
+          dot={false}
+          type="monotone"
+          style={{
+            opacity: 0.5,
+          }}
+          dataKey="uv"
+          stroke="#fff"
+        />
 
-      <XAxis
-        dataKey="name"
-        stroke="#fff"
-        tick={true}
-        opacity={0.5}
-        padding={{ left: 10, right: 10 }}
-        axisLine={false}
-        tickLine={false}
-      />
+        <XAxis
+          dataKey="name"
+          stroke="#fff"
+          tick={true}
+          opacity={0.5}
+          padding={{ left: 10, right: 10 }}
+          axisLine={false}
+          tickLine={false}
+        />
 
-      <Tooltip content={<CustomTooltip />} />
-    </LineChart>
+        <Tooltip content={<CustomTooltip />} />
+      </LineChart>
+    </ResponsiveContainer>
   );
 };
 

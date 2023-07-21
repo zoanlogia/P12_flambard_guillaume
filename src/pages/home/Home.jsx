@@ -31,7 +31,8 @@ const Home = () => {
           Bonjour{" "}
           <span
             id={`user_${userData.userMainData.id}`}
-          >{`${userData.userMainData.firstName} ${userData.userMainData.lastName}`}</span>
+          >{userData.userMainData.firstName}</span>
+          <span>{userData.userMainData.lastName}</span>
         </h1>
 
         <p className="home__intro__desc">
