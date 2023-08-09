@@ -56,47 +56,47 @@ const SimpleChartBar = () => {
   return (
     <ResponsiveContainer width="99%" aspect={3} height="100%">
       <BarChart
-        data={dataGraph}
-        margin={{
-          top: 10,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray={`5`} vertical={false} />
-        <XAxis
-          dataKey="name"
-          axisLine={false}
-          tickLine={false}
-          stroke="#9B9EAC"
-          tickMargin={15}
-        />
-        <YAxis
-          allowDataOverflow={true}
-          domain={["dataMin", "auto"]}
-          orientation="right"
-          dataKey={"weight"}
-          axisLine={false}
-          tickLine={false}
-          stroke="#9B9EAC"
-          // interval={1}
-        />
-        <Tooltip content={<CustomTooltip />} />
+    data={dataGraph}
+    margin={{
+      top: 10,
+      right: 0,
+      left: 20,
+      bottom: 5,
+    }}
+>
+    <CartesianGrid strokeDasharray={`5`} vertical={false} />
+    <XAxis
+      dataKey="name"
+      axisLine={false}
+      tickLine={false}
+      stroke="#9B9EAC"
+      tickMargin={15}
+    />
+    <YAxis
+      yAxisId="left"
+      allowDataOverflow={true}
+      domain={["auto", "auto"]}
+      orientation="right"
+      dataKey={"weight"}
+      axisLine={false}
+      tickLine={false}
+      stroke="#9B9EAC"
+    />
+    <YAxis
+      yAxisId="right"
+      allowDataOverflow={true}
+      domain={["auto", "auto"]}
+      orientation="right"
+      axisLine={false}
+      tickLine={false}
+      stroke="#9B9EAC"
+      hide={true} // hides this Y-axis but still allows bars to use its scale
+    />
+    <Tooltip content={<CustomTooltip />} />
+    <Bar yAxisId="left" dataKey="weight" fill="#282D30" barSize={10} radius={[10, 10, 0, 0]} />
+    <Bar yAxisId="right" dataKey="kcal" fill="#E60000" barSize={10} radius={[10, 10, 0, 0]} />
+</BarChart>
 
-        <Bar
-          dataKey="weight"
-          fill="#282D30"
-          barSize={10}
-          radius={[10, 10, 0, 0]}
-        />
-        <Bar
-          dataKey="kcal"
-          fill="#E60000"
-          barSize={10}
-          radius={[10, 10, 0, 0]}
-        />
-      </BarChart>
     </ResponsiveContainer>
   );
 };

@@ -13,7 +13,6 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  ResponsiveContainer,
 } from "recharts";
 import { useUserData } from "@/hooks/useUserData";
 import { useEffect, useState } from "react";
@@ -43,8 +42,8 @@ const SimpleRadarChart = () => {
 
   return (
     <div>
-      <ResponsiveContainer width={300} height={300}>
-        <RadarChart cx="50%" cy="50%" outerRadius="50%" data={performance}>
+      
+        <RadarChart cx="50%" cy="50%" outerRadius="50%" data={performance} width={320} height={320}>
           <PolarGrid radialLines={false} stroke="#fff" strokeWidth={1.5} />
           <PolarAngleAxis
             tick={{ fontSize: 15 }}
@@ -54,7 +53,7 @@ const SimpleRadarChart = () => {
           />
           <Radar dataKey="A" fill="rgba(255, 1, 1, 0.70)" fillOpacity={0.8} />
         </RadarChart>
-      </ResponsiveContainer>
+      
     </div>
   );
 };

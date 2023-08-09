@@ -19,6 +19,7 @@
             // flex-direction: column;  
             flex-wrap: wrap;
         }
+
         gap: 1em;
 
         &__intro {
@@ -45,7 +46,7 @@
             }
         }
 
-       
+
 
         .cards__container {
             flex: 1 1;
@@ -64,6 +65,12 @@
             gap: 1em;
             flex-wrap: wrap;
         }
+    }
+
+    &__stats {
+        display: flex;
+        flex-direction: column;
+        // gap: 6em;
     }
 
 }

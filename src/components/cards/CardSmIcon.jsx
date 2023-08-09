@@ -13,9 +13,8 @@ const CardSmIcon = ({ icon, content, category }) => {
     useEffect(() => {
         if (userData) {
             const userStats = userData?.userMainData?.keyData;
-            // console.log(userStats);
             const statsCategory = userStats[`${category}Count`];
-            console.log(statsCategory); // this will select the right property based on the category
+            
             if (statsCategory) {
                 setStats(statsCategory);
             }
