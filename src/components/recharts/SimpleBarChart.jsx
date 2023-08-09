@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useUserData } from "@/hooks/useUserData";
+import PropTypes from "prop-types";
 
 const SimpleChartBar = () => {
   const { userId } = useParams();
@@ -29,8 +30,31 @@ const SimpleChartBar = () => {
     weight: session.kilogram, // assuming weight is a property in session
   }));
 
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload) {
+      return (
+        <div
+          style={{
+            backgroundColor: "red",
+            padding: "10px",
+            lineHeight: "3",
+          }}
+          className="custom-tooltip"
+        >
+          <p style={{ color: "white" }} className="label">
+            {`${payload[0].value}`} kg
+          </p>
+          <p style={{ color: "white" }} className="label">
+            {`${payload[1].value}`} kcal
+          </p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
-    <ResponsiveContainer  width="99%" aspect={3} height="100%">
+    <ResponsiveContainer width="99%" aspect={3} height="100%">
       <BarChart
         data={dataGraph}
         margin={{
@@ -50,15 +74,15 @@ const SimpleChartBar = () => {
         />
         <YAxis
           allowDataOverflow={true}
-          domain={"dataMin"}
+          domain={["dataMin", "auto"]}
           orientation="right"
           dataKey={"weight"}
           axisLine={false}
           tickLine={false}
           stroke="#9B9EAC"
-          interval={1}
+          // interval={1}
         />
-        <Tooltip />
+        <Tooltip content={<CustomTooltip />} />
 
         <Bar
           dataKey="weight"
@@ -75,6 +99,12 @@ const SimpleChartBar = () => {
       </BarChart>
     </ResponsiveContainer>
   );
+};
+
+SimpleChartBar.propTypes = {
+  data: PropTypes.array,
+  active: PropTypes.bool,
+  payload: PropTypes.array,
 };
 
 export default SimpleChartBar;

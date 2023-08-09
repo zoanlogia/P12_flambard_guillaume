@@ -47,7 +47,7 @@ const RenderLineChart = () => {
   };
 
   return (
-    <ResponsiveContainer>
+    <ResponsiveContainer width={"100%"} height={"100%"}>
       <LineChart data={averageSessions} width={"100%"} height={200}>
         <Line
           strokeWidth={"px"}
@@ -77,8 +77,8 @@ const RenderLineChart = () => {
 };
 
 RenderLineChart.propTypes = {
-  active: PropTypes.any,
-  payload: PropTypes.any,
+  active: PropTypes.bool,
+  payload: PropTypes.array,
 };
 
 export default RenderLineChart;

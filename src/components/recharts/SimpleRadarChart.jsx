@@ -1,3 +1,12 @@
+/* The code you provided is a React component called `SimpleRadarChart`. It imports several modules and
+hooks from external libraries. */
+/**
+ * The SimpleRadarChart component renders a radar chart with data from the user's performance.
+ * @returns The SimpleRadarChart component is returning a JSX element.
+ * @see https://recharts.org/en-US/examples/SimpleRadarChart
+ *
+ */
+
 import { useParams } from "react-router-dom";
 import {
   Radar,
@@ -34,11 +43,11 @@ const SimpleRadarChart = () => {
 
   return (
     <div>
-      <ResponsiveContainer width={250} height={250}>
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={performance}>
+      <ResponsiveContainer width={300} height={300}>
+        <RadarChart cx="50%" cy="50%" outerRadius="50%" data={performance}>
           <PolarGrid radialLines={false} stroke="#fff" strokeWidth={1.5} />
           <PolarAngleAxis
-            tick={{ fontSize: 10 }}
+            tick={{ fontSize: 15 }}
             stroke="#fff"
             strokeWidth={1.5}
             dataKey="subject"
